@@ -15,7 +15,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get("/", (req,res)=> {
-    res.send("<h1 style='text-align:center'>Welcome to my database</h1>"+"<h3 style='text-align:center'>/user to see all user</h3>")
+    res.send("<h1 style='text-align:center'>Welcome to my database</h1>"+"<h3 style='text-align:center'>/user to see all user</h3>"+"<h3 style='text-align:center'>username and password are the same/h3>")
 })
 
 app.use(authRouter)

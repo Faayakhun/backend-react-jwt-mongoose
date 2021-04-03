@@ -22,7 +22,7 @@ app.use(authRouter)
 app.use(userRouter)
 app.use(productRouter)
 app.use(categoryRouter)
-app.use(cartRouter)
+app.use(verifyToken, cartRouter)
 
 
 

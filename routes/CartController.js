@@ -1,7 +1,6 @@
 const express = require("express")
 const {Cart} = require("../models")
 const verifyToken = require('../middleware/authorization')
-const cors = require('cors')
 
 const app = express()
 
@@ -15,7 +14,6 @@ app.get('/cart', async (req,res)=>{
     }
 })
 
-app.options('/user/:id/cart',cors())
 
 app.get('/user/:id/cart', async (req,res)=>{
     const userId = req.params.id

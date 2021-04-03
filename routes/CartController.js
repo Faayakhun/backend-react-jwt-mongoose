@@ -15,7 +15,7 @@ app.get('/cart', async (req,res)=>{
 })
 
 
-app.get('/user/:id/cart',verifyToken, async (req,res)=>{
+app.get('/user/:id/cart', async (req,res)=>{
     const userId = req.params.id
     const cart = await Cart.findOne({user: userId}, "-__v").populate('user',"name").populate('product',"-__v")
     try {

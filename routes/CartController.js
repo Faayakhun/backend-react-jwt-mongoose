@@ -4,18 +4,18 @@ const verifyToken = require('../middleware/authorization')
 
 const app = express()
 
-app.get('/cart',verifyToken, async (req,res)=>{
-    const cart = await Cart.find({}, "-__v").populate('user',"name").populate('product',"-__v")
-    try {
-        res.send(cart)
-    } catch {
-        console.log(err)
-        res.status(500).send(err)
-    }
-})
+// app.get('/cart',verifyToken, async (req,res)=>{
+//     const cart = await Cart.find({}, "-__v").populate('user',"name").populate('product',"-__v")
+//     try {
+//         res.send(cart)
+//     } catch {
+//         console.log(err)
+//         res.status(500).send(err)
+//     }
+// })
 
 
-app.get('/cart/:id',verifyToken, async (req,res)=>{
+app.get('/cart/',verifyToken, async (req,res)=>{
     const userId = req.params.id
     const cart = await Cart.findOne({user: userId}, "-__v").populate('user',"name").populate('product',"-__v")
     try {

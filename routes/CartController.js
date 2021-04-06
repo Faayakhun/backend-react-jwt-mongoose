@@ -16,8 +16,7 @@ const app = express()
 
 
 app.get('/cart/',verifyToken, async (req,res)=>{
-    const userId = req.params.id
-    const cart = await Cart.findOne({user: userId}, "-__v").populate('user',"name").populate('product',"-__v")
+    const cart = await Cart.findOne({user: req.payload._id}, "-__v").populate('user',"name").populate('product',"-__v")
     try {
         res.send(cart)
     } catch {
